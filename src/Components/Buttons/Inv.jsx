@@ -9,7 +9,7 @@ const Inv = (props) => {
         {/* <!--! Button 7  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue(7)"
+          onClick={() => props.value(7)}
         >
           7
         </button>
@@ -27,7 +27,7 @@ const Inv = (props) => {
         {/* <!--! Button 1  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue(1)"
+          onClick={() => props.value(1)}
         >
           1
         </button>
@@ -35,14 +35,14 @@ const Inv = (props) => {
         {/* <!-- !Button Del  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="Del()"
+          onClick={() => props.del()}
         >
           Del
         </button>
         {/* <!-- !Button /  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue('/')"
+          onClick={() => props.value("/")}
         >
           /
         </button>
@@ -58,21 +58,23 @@ const Inv = (props) => {
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
           value="sin"
-          onclick="document.cacl.display.value=Math.asin(document.cacl.display.value).toFixed(5)"
+          onClick={() => props.value(Math.asin(props.inputVal).toFixed(2))}
         >
           sin<sup>-1</sup>
         </button>
         {/* <!-- !Button ex  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.pow(Math.E,document.cacl.display.value).toFixed(5)"
+          onClick={() =>
+            props.value(Math.pow(Math.E, props.inputVal).toFixed(2))
+          }
         >
           e<sup>x</sup>
         </button>
         {/* <!-- !Button x3  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.pow(document.cacl.display.value,2).toFixed(2)"
+          onClick={() => props.value(Math.pow(props.inputVal, 2).toFixed(2))}
         >
           x<sup>3</sup>
         </button>
@@ -80,77 +82,74 @@ const Inv = (props) => {
         {/* <!-- !Button x  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue('*')"
+          onClick={() => props.value("*")}
         >
           x
         </button>
         {/* <!-- !Button Deg  --> */}
-        <button
-          class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="Deg()"
-        >
+        <button class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300">
           Deg
         </button>
         {/* <!-- !Button cos inverse --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.acos(document.cacl.display.value).toFixed(5)"
+          onClick={() => props.value(Math.acos(props.inputVal).toFixed(2))}
         >
           cos<sup>-1</sup>
         </button>
         {/* <!-- !Button 10x  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.pow(10,document.cacl.display.value).toFixed(0)"
+          onClick={() => props.value(Math.pow(10, props.inputVal).toFixed(0))}
         >
           10<sup>x</sup>
         </button>
         {/* <!-- !Button exp  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.exp(document.cacl.display.value).toFixed(3)"
+          onClick={() => props.value(Math.exp(props.inputVal).toFixed(2))}
         >
           exp
         </button>
         {/* <!-- !Button -  --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue('-')"
+          onClick={() => props.value("-")}
         >
           -
         </button>
         {/* <!-- !Button %  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="insertValue('%')"
+          onClick={() => props.value("%")}
         >
           %
         </button>
         {/* <!-- !Button tan inverse --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.atan(document.cacl.display.value).toFixed(5)"
+          onClick={() => props.value(Math.atan(props.inputVal).toFixed(2))}
         >
           tan<sup>-1</sup>
         </button>
         {/* <!-- !Button √  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.sqrt(document.cacl.display.value).toFixed(1)"
+          onClick={() => props.value(Math.sqrt(props.inputVal).toFixed(1))}
         >
           √
         </button>
         {/* <!-- !Button x2  --> */}
         <button
           class="text-black bg-white p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gray-400 hover:ease duration-300"
-          onclick="document.cacl.display.value=Math.pow(document.cacl.display.value,2).toFixed(2)"
+          onClick={() => props.value(Math.pow(props.inputVal, 2).toFixed(2))}
         >
           x<sup>2</sup>
         </button>
         {/* <!-- !Button + --> */}
         <button
           class="text-black bg-gray-400 p-2 px-5 py-10 text-5xl hover:text-white hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:rounded-full hover:ease duration-300"
-          onclick="insertValue('+')"
+          onClick={() => props.value("+")}
         >
           +
         </button>

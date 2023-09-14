@@ -163,7 +163,15 @@ const SecondPage = (props) => {
           </div>
         </div>
       )}
-      {invState && <Inv inv={invHandler} onClick={sliderHandler} />}
+      {invState && (
+        <Inv
+          inv={invHandler}
+          value={props.value}
+          inputVal={props.inputVal}
+          onClick={sliderHandler}
+          del={props.del}
+        />
+      )}
     </Fragment>
   );
 };
